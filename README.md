@@ -4,8 +4,7 @@
 
 # Quick Start
 ```shell
-npm i cooking -g
-
-mkdir test-plugin && cd test-plugin
 cooking init plugin
 ```
+
+plugin 项目必须命名为 cooking-*
