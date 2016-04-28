@@ -1,0 +1,27 @@
+{
+  "name": "<%= name %>",
+  "version": "0.0.0",
+  "description": "<%= description %>",
+  "private": true,
+  "keywords": [
+    "slushgenerator",
+    "cooking"
+  ],
+  "scripts": {
+    "test": ""
+  },<% if (github) { %>
+  "repository": {
+    "type": "git",
+    "url": "git+<%= github %>.git"
+  },
+  "homepage": "<%= github %>#readme",
+  "bugs": {
+    "url": "<%= github %>/issues"
+  },<% } %><% if (author) { %>
+  "author": "<%= author %>",<% } %>
+  "license": "<%= license %>",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
