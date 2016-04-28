@@ -1,6 +1,6 @@
 {
   "name": "slush-cooking-plugin",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "cooking plugin 脚手架.",
   "main": "index.js",
   "scripts": {
