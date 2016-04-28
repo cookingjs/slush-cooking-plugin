@@ -4,7 +4,6 @@
   "description": "<%= description %>",
   "private": true,
   "keywords": [
-    "slushgenerator",
     "cooking"
   ],
   "scripts": {
