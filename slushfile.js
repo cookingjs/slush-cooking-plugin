@@ -1,27 +1,41 @@
-var gulp = require('gulp'),
-    install = require('gulp-install'),
-    conflict = require('gulp-conflict'),
-    template = require('gulp-template'),
-    inquirer = require('inquirer')
+var gulp = require('gulp')
+var install = require('gulp-install')
+var conflict = require('gulp-conflict')
+var template = require('gulp-template')
+var inquirer = require('inquirer')
+var cookingConfig = require('cooking-config')
 
 gulp.task('default', function (done) {
   inquirer.prompt([
     {
       type: 'input',
       name: 'name',
-      message: 'Plugin name',
+      message: 'Give your app a name',
       default: getNameProposal()
     },
     {
       type: 'input',
       name: 'description',
-      message: 'Description',
-      default: 'A cooking plugin.'
+      message: 'Give your app a description',
+      default: 'A vue project.'
     },
     {
       type: 'input',
       name: 'github',
-      message: 'Github repository'
+      message: 'git repository',
+      default: cookingConfig.github
+    },
+    {
+      type: 'input',
+      name: 'author',
+      message: 'author',
+      default: cookingConfig.author
+    },
+    {
+      type: 'input',
+      name: 'license',
+      message: 'license',
+      default: 'ISC'
     },
     {
       type: 'confirm',
@@ -30,6 +44,8 @@ gulp.task('default', function (done) {
     }
   ],
   function (answers) {
+    answers.github = answers.github.replace(/\/$/, '')
+
     if (!answers.moveon) {
       return done()
     }
