@@ -17,7 +17,7 @@ gulp.task('default', function (done) {
       type: 'input',
       name: 'description',
       message: 'Give your app a description',
-      default: 'A vue project.'
+      default: 'A cooking plugin.'
     },
     {
       type: 'input',
@@ -44,7 +44,7 @@ gulp.task('default', function (done) {
     }
   ],
   function (answers) {
-    answers.github = answers.github.replace(/\/$/, '')
+    answers.github = answers.github.replace(/\/$/, '') + '/' + answers.name
 
     if (!answers.moveon) {
       return done()
