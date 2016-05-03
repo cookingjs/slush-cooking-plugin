@@ -2,6 +2,7 @@ var gulp = require('gulp')
 var install = require('gulp-install')
 var conflict = require('gulp-conflict')
 var template = require('gulp-template')
+var rename = require('gulp-rename')
 var inquirer = require('inquirer')
 var cookingConfig = require('cooking-config')
 
@@ -49,8 +50,13 @@ gulp.task('default', function (done) {
     if (!answers.moveon) {
       return done()
     }
-    gulp.src(__dirname + '/template/**', { dot: true })
+    gulp.src(__dirname + '/template/**')
       .pipe(template(answers))
+      .pipe(rename(function (file) {
+        if (file.basename[0] === '_') {
+          file.basename = '.' + file.basename.slice(1)
+        }
+      }))
       .pipe(conflict('./'))
       .pipe(gulp.dest('./'))
       .pipe(install())
