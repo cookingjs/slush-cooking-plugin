@@ -4,4 +4,4 @@
  */
 module.exports = function (cooking, options) {
   //  do it
-}
+};
